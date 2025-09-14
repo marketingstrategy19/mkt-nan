@@ -1,2 +1,803 @@
-# mkt-nan
-Marketing Strategy Website - Professional digital marketing services
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Strategy Services - Professional Digital Marketing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 -10px 50px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e8ecf4;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .deliverable {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        /* Packages */
+        .packages {
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+        }
+
+        .package-card.featured {
+            transform: scale(1.05);
+            border: 3px solid #667eea;
+        }
+
+        .package-card.featured::before {
+            height: 8px;
+        }
+
+        .package-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .package-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 100%;
+        }
+
+        .package-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border: 4px solid white;
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px !important;
+            }
+            
+            .package-card.featured {
+                transform: none;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-elements::before {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-elements::after {
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">Marketing Pro</div>
+            <ul class="nav-links">
+                <li><a href="#services">บริการ</a></li>
+                <li><a href="#packages">แพ็กเกจ</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements"></div>
+        <div class="container">
+            <h1>สโคปงาน <span class="highlight">Marketing Strategy</span></h1>
+            <p>สำหรับแบรนด์ที่ต้องการเติบโตอย่างยั่งยืน</p>
+            <a href="#contact" class="cta-button">เริ่มต้นกับเราวันนี้</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">บริการของเรา</h2>
+                
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>🎯 Market Research & Brand Strategy</h3>
+                        <ul>
+                            <li><strong>Customer Analysis</strong> เชิงลึก - สร้าง Customer Avatar ที่สมบูรณ์</li>
+                            <li>เข้าใจ <strong>Pain Points</strong> จริงของลูกค้า</li>
+                            <li>ติดตาม <strong>Customer Journey</strong> แบบละเอียด</li>
+                            <li><strong>Customer Interview</strong> 2-3 คนต่อเดือน</li>
+                            <li><strong>Competitor Analysis</strong> ต่อเนื่อง</li>
+                            <li>หา <strong>Unique Selling Point</strong> ที่แตกต่าง</li>
+                        </ul>
+                        <div class="deliverable">
+                            <strong>Deliverables:</strong> Strategic Report + Customer Data + Competitor Intelligence
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>🌐 Digital Channel Setup</h3>
+                        <ul>
+                            <li>สร้าง <strong>Facebook Page, Instagram Business, LINE Official</strong></li>
+                            <li>ออกแบบ <strong>Visual Identity</strong> - Profile, Cover, Highlight</li>
+                            <li>เขียน <strong>Bio & About Section</strong> ที่ Convert ได้</li>
+                            <li>ติดตั้ง <strong>Analytics Tools</strong> และ <strong>Facebook Pixel</strong></li>
+                            <li>สร้าง <strong>Landing Page</strong> ที่ปรับแต่งมาเพื่อการขาย</li>
+                            <li><strong>SEO Optimization</strong> เบื้องต้น</li>
+                        </ul>
+                        <div class="deliverable">
+                            <strong>Deliverables:</strong> Ready-to-use Social Media + Landing Page
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>✨ Content Creation & Strategy</h3>
+                        <ul>
+                            <li>กำหนด <strong>Content Pillars</strong> ตาม Customer Journey</li>
+                            <li>ทำ <strong>Editorial Calendar</strong> 1 เดือนล่วงหน้า</li>
+                            <li><strong>Content Mix:</strong> Product 30% Educational 30% Lifestyle 25%</li>
+                            <li><strong>Social Posts:</strong> 25-30 High-quality Posts</li>
+                            <li><strong>Video Content:</strong> 3-4 Short Videos ต่อเดือน</li>
+                            <li><strong>Product Photography</strong> ให้ดูน่าซื้อ</li>
+                        </ul>
+                        <div class="deliverable">
+                            <strong>Deliverables:</strong> 1-Month Content Ready + Templates & Guidelines
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>📱 Social Media Management</h3>
+                        <ul>
+                            <li><strong>Scheduled Posting</strong> ตามเวลาที่เหมาะสม</li>
+                            <li><strong>Community Engagement</strong> - ตอบ Comments & Messages</li>
+                            <li><strong>Stories Update</strong> เป็นประจำ</li>
+                            <li><strong>Mini Campaigns</strong> - Q&A, Polls, Giveaways</li>
+                            <li><strong>Influencer Outreach</strong> และ Collaborations</li>
+                            <li><strong>User Generated Content</strong> Campaigns</li>
+                        </ul>
+                        <div class="deliverable">
+                            <strong>Deliverables:</strong> Active Social Presence + Growing Followers
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>💰 Paid Advertising & Optimization</h3>
+                        <ul>
+                            <li><strong>Facebook & Instagram Ads</strong> Campaign Setup</li>
+                            <li><strong>Precision Targeting</strong> จาก Customer Analysis</li>
+                            <li><strong>A/B Testing</strong> Ad Creative, Copy และ Audience</li>
+                            <li><strong>Google Ads</strong> - Search, Display, Shopping</li>
+                            <li><strong>Retargeting Campaigns</strong> คนที่เคยเข้าชม</li>
+                            <li><strong>ROI Tracking</strong> และ Cost Optimization</li>
+                        </ul>
+                        <div class="deliverable">
+                            <strong>Deliverables:</strong> High-performing Ads + Weekly Performance Reports
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>📊 Analytics & Reporting</h3>
+                        <ul>
+                            <li><strong>Google Analytics</strong> สำหรับ Website Performance</li>
+                            <li><strong>Social Media Insights</strong> ทุก Platform</li>
+                            <li><strong>Real-time ROI</strong> และ ROAS Calculation</li>
+                            <li><strong>Key Performance Indicators</strong> สรุปชัดเจน</li>
+                            <li><strong>Customer Behavior Analysis</strong> เชิงลึก</li>
+                            <li><strong>Actionable Recommendations</strong> ทุกเดือน</li>
+                        </ul>
+                        <div class="deliverable">
+                            <strong>Deliverables:</strong> Professional Reports + Strategic Insights
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Section -->
+        <section id="packages" class="section packages">
+            <div class="container">
+                <h2 class="section-title">Service Packages & Pricing</h2>
+                
+                <div class="package-grid">
+                    <div class="package-card">
+                        <div class="package-title">🚀 STARTUP</div>
+                        <div class="package-price">28,000 ฿<span style="font-size: 1rem;">/เดือน</span></div>
+                        <p><strong>เหมาะกับ:</strong> ธุรกิจใหม่ งบจำกัด</p>
+                        <ul class="package-features">
+                            <li>✓ Customer & Competitor Analysis เชิงลึก</li>
+                            <li>✓ Brand Strategy และ Visual Identity</li>
+                            <li>✓ Social Media Setup + Management</li>
+                            <li>✓ Content Creation 25-30 Posts/เดือน</li>
+                            <li>✓ Basic Paid Advertising</li>
+                            <li>✓ Monthly Reports & Consultation</li>
+                        </ul>
+                        <button class="package-button">เลือกแพ็กเกจนี้</button>
+                    </div>
+
+                    <div class="package-card featured">
+                        <div class="package-title">📈 GROWTH</div>
+                        <div class="package-price">35,000 ฿<span style="font-size: 1rem;">/เดือน</span></div>
+                        <p><strong>เหมาะกับ:</strong> ธุรกิจที่พร้อม Scale Up</p>
+                        <ul class="package-features">
+                            <li>✓ ทุกอย่างใน Startup Package +</li>
+                            <li>✓ Advanced Advertising Strategies</li>
+                            <li>✓ Ongoing Competitor Monitoring</li>
+                            <li>✓ Email Marketing เบื้องต้น</li>
+                            <li>✓ Influencer Collaborations</li>
+                            <li>✓ Landing Page Optimization</li>
+                            <li>✓ Priority Support</li>
+                        </ul>
+                        <button class="package-button">เลือกแพ็กเกจนี้</button>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-title">⭐ PREMIUM</div>
+                        <div class="package-price">45,000 ฿<span style="font-size: 1rem;">/เดือน</span></div>
+                        <p><strong>เหมาะกับ:</strong> สินค้าราคาสูง Premium Brands</p>
+                        <ul class="package-features">
+                            <li>✓ ทุกอย่างใน Growth Package +</li>
+                            <li>✓ Premium Content Creation</li>
+                            <li>✓ Google Ads Management</li>
+                            <li>✓ Advanced Analytics & BI Reports</li>
+                            <li>✓ Crisis Management Plan</li>
+                            <li>✓ Strategic Partnership Development</li>
+                            <li>✓ Weekly Review Calls</li>
+                        </ul>
+                        <button class="package-button">เลือกแพ็กเกจนี้</button>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">300-800</div>
+                        <div>Followers เดือนแรก</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2-3x</div>
+                        <div>Marketing ROI</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25-30</div>
+                        <div>Posts คุณภาพ/เดือน</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50-150</div>
+                        <div>Leads คุณภาพ/เดือน</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <div class="container">
+                <h2 class="section-title">Project Timeline</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>เดือนที่ 1: Foundation Building</h3>
+                            <p><strong>Week 1-2:</strong> Market Research & Customer Analysis</p>
+                            <p><strong>Week 3:</strong> Brand Strategy + Social Media Setup</p>
+                            <p><strong>Week 4:</strong> Content Creation + Soft Launch</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>เดือนที่ 2-3: Performance Optimization</h3>
+                            <p><strong>เดือนที่ 2:</strong> Full Campaign Launch + Performance Tracking</p>
+                            <p><strong>เดือนที่ 3:</strong> Data Analysis + Strategy Refinement</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>เดือนที่ 4+: Scale & Growth</h3>
+                            <p>Continuous Optimization และขยายผล</p>
+                            <p>Advanced Features ตาม Package ที่เลือก</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Ready to Grow Together?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">เราเชื่อว่าทุก Brand มี Story ที่ดี และเราอยากช่วยเล่า Story นั้นให้คนฟัง</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <h3>LINE</h3>
+                        <p style="font-size: 1.2rem;">080-0269276</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <p style="font-size: 1.2rem;">nannyonr.nan19@gmail.com</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <h3>Phone</h3>
+                        <p style="font-size: 1.2rem;">080-0269276</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="margin-bottom: 1rem;">🎯 Deep Customer Understanding</h3>
+                    <p>เราใช้เวลาศึกษา Customer Insights และ Competitive Landscape อย่างจริงจัง ไม่ Copy & Paste Templates</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; text-align: left;">
+                        <div>📊 <strong>Data-Driven Decisions</strong> - ทุก Strategy อ้างอิงข้อมูลจริง</div>
+                        <div>💡 <strong>Creative That Converts</strong> - Content ที่ขายได้จริง</div>
+                        <div>🚀 <strong>ROI-Focused</strong> - เน้น Measurable Results</div>
+                        <div>🤝 <strong>Partnership Mindset</strong> - เป็น Strategic Partner</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .package-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Package button interactions
+        document.querySelectorAll('.package-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const packageName = this.closest('.package-card').querySelector('.package-title').textContent;
+                alert(`ขอบคุณที่สนใจ ${packageName} Package! กรุณาติดต่อเราผ่านช่องทางด้านล่างเพื่อปรึกษาต่อ`);
+            });
+        });
+    </script>
+</body>
+</html>
